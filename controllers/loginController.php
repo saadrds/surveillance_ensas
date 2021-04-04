@@ -7,7 +7,7 @@
             Header('Location:index.php');
         }
         else{
-            Header('Location:../Views/homeViews.php');
+            Header('Location:../Views/homeView.php');
 
         }
     }
