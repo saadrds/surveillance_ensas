@@ -1,17 +1,13 @@
 <?php
     require_once("../models/connection.php");
     $con = new ConnectionClass();
-    if(isset($_POST['username']) && isset($_POST['password'])){
-        $result = $con->SelectWhereFromTable("admin","username",$_POST['username']);
+    if(isset($_POST['login']) && isset($_POST['username']) && isset($_POST['password'])){
+        $result = $con->SelectWhereFromTable($_POST['username'],$_POST['password']);
         if(!empty($result)){
-            if($result['PASSWORD'] == $_POST['password']){
                 require_once('../Views/homeView.php');
-            }
         }
         else{
             Header('Location:index.php?msg=erreur');
         }
     }
-
-    
 ?>
