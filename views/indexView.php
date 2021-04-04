@@ -33,6 +33,12 @@
 					<div class="form-login">
 						<input type="submit" name="login" value="Login">
 					</div>
+					<div>
+						<?php
+						if(isset($_GET['msg'])) 
+							echo '<div class="alert alert-danger"> Username ou Password est incorrect ! </div>'; 
+						?>
+					</div>
 				</form>
 			</div>
 		</div>

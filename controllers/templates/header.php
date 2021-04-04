@@ -10,7 +10,7 @@
 <body>
 <nav class="navbar navbar-light bg-light">
   <a class="navbar-brand" href="#">
-    <img src="ensa-safi.png" width="30" height="30" class="d-inline-block align-top" alt="ensas logo">
+    <img src="images/ensa-safi.png" width="30" height="30" class="d-inline-block align-top" alt="ensas logo">
     ENSA SAFI
   </a>
 </nav>

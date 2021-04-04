@@ -4,7 +4,7 @@ class ConnectionClass {
    private $servername = "localhost";
    private $username = "root";
    private $password = "";
-   private $dbname = "examen";
+   private $dbname = "bouarifi";
 
    // getting the connection from the db
    public function getConnection()
