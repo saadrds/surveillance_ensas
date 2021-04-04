@@ -4,7 +4,7 @@ class ConnectionClass {
    private $servername = "localhost";
    private $username = "root";
    private $password = "";
-   private $dbname = "bouarifi";
+   private $dbname = "surveillance";
 
    // getting the connection from the db
    public function getConnection()
@@ -36,9 +36,9 @@ class ConnectionClass {
        return $result;
    }
 
-   public function SelectWhereFromTable($table,$col, $value)
+   public function SelectWhereFromTable($user,$pass)
    {
-       $sql = "SELECT * FROM $table WHERE $col = '$value' ";
+       $sql = "SELECT * FROM admin WHERE USERNAME = '$user' && PASSWORD ='$pass' ";
        $result = $this->getConnection()->query($sql)->fetchAll();
        return $result;
    }
