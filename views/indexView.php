@@ -16,7 +16,7 @@
 				<div class="logoensa image-holder">
 					<img src="images/registration-form-4.jpg" alt="ensas">
 				</div>
-				<form action="loginController.php" method="post">
+				<form action="loginController.php" method="post" id="form1">
 					<h3>Sign Up</h3>
 					<div class="form-holder active">
 						<input type="text" placeholder="username" name="username" class="form-control">
@@ -31,12 +31,13 @@
 						</label>
 					</div>
 					<div class="form-login">
-						<input type="submit" name="login" value="Login">
+						<button type="submit" form="form1" value="Submit">Login</button>
+						
 					</div>
 					<div>
 						<?php
 						if(isset($_GET['msg'])) 
-							echo '<div class="alert alert-danger"> Username ou Password est incorrect ! </div>'; 
+							echo '<br><div class="alert alert-danger" style="color:red;"> Username ou Password est incorrect ! </div>'; 
 						?>
 					</div>
 				</form>
