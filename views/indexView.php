@@ -13,7 +13,7 @@
 
 		<div class="wrapper">
 			<div class="inner">
-				<div class="image-holder">
+				<div class="logoensa image-holder">
 					<img src="images/registration-form-4.jpg" alt="ensas">
 				</div>
 				<form action="loginController.php" method="post">
