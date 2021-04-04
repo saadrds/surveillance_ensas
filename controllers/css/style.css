@@ -46,7 +46,11 @@ a {
   background: url("../images/bg-registration-form-4.jpg") no-repeat;
   background-position: center;
   height: 100%;
-  background-size: cover; }
+  background-size: cover; 
+}
+.logoensa :hover{
+  transform: scale(1.02);
+}
 
 .inner {
   max-width: 850px;
