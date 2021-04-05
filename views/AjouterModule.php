@@ -1,7 +1,4 @@
-<?php 
-    require_once('../controllers/templates/header.php');
-?>
-    <style>
+<style>
       html, body {
       min-height: 100%;
       }
@@ -12,9 +9,6 @@
       font-family: Roboto, Arial, sans-serif;
       font-size: 16px;
       color: #eee;
-      }
-      body {
-      background-color:#ECF0F1;
       }
       h1, h2 {
       text-transform: uppercase;
@@ -29,8 +23,7 @@
       justify-content: center;
       align-items: center;
       height: 100%;
-      padding-left: 200px;
-      padding-right: 200px;
+      padding: 25px;
       background: rgba(0, 0, 0, 0.5); 
       }
       .left-part, form {
@@ -48,18 +41,19 @@
       .title {
       display: flex;
       align-items: center;
-      margin-bottom: 20px;
+      margin-bottom: 40px;
       }
       .info {
       display: flex;
       flex-direction: column;
       }
-      input, select {
+      input, select, #search-box {
       padding: 5px;
       margin-bottom: 30px;
       background: transparent;
       border: none;
       border-bottom: 1px solid #eee;
+      vertical-align: middle;
       }
       input::placeholder {
       color: #eee;
@@ -81,7 +75,7 @@
       .checkbox a:hover {
       color: #85d6de;
       }
-      .btn-item, button {
+      .btn-item, .btn {
       padding: 10px 5px;
       margin-top: 20px;
       border-radius: 5px; 
@@ -89,53 +83,74 @@
       background: #26a9e0; 
       text-decoration: none;
       font-size: 15px;
-      font-weight: 400;
       color: #fff;
       }
       .btn-item {
       display: inline-block;
       margin: 20px 5px 0;
       }
-      button {
-      width: 100%;
+      .btn {
+      width: 40%;
+      text-align: center;
       }
-      button:hover, .btn-item:hover {
+      .divajouterProf{
+          text-align: center;
+      }
+      .btn:hover, .btn-item:hover {
       background: #85d6de;
       }
       @media (min-width: 568px) {
       html, body {
       height: 100%;
+      background-color:#ECF0F1;
+
       }
       .main-block {
       flex-direction: row;
       height: calc(100% - 50px);
+      background-color:#ECF0F1;
       }
       .left-part, form {
       flex: 1;
       height: auto;
       }
       }
+#country-list{float:left;list-style:none;margin-top:-3px;padding:0;width:190px;position: absolute;top:430px;}
+#country-list li{padding: 10px; background: #eee;color:black}
+#country-list li:hover{background:#aaa;cursor: pointer;color:black}
     </style>
   </head>
   <body>
-    <div class="main-block">
-      <form action='../controllers/ajoutProfController.php' method='post'>
+    <div class="container main-block">
+      <form action='AddModuleInData.php' method='post'>
+      <p style="color:red;"><?php if(isset($message)){ echo $message ;}?></p><br>
         <div class="title">
           <i class="fas fa-pencil-alt"></i> 
-          <h2>Ajouter Prof</h2>
+          <h2>Ajouter Module</h2>
         </div>
         <div class="info">
-          <input class="fname" type="text" name="nom" placeholder="Nom">
-          <input type="text" name="prenom" placeholder="Prenom">
-          <input type="email" name="email" placeholder="Email">
-          <input type="text" name="telephone" placeholder="Téléphone">
+          <input class="fname" type="text" name="nomModule" placeholder="Nom du Module" > 
+          <div class="frmSearch">
+          <input style="width:100%;" type="text" name="respoModule" id="search-box" placeholder="Responsable de Module" >
+          <div id="suggesstion-box"></div>
+          </div>
+          <select name="Filiere" id="filiere">
+          <?php foreach($fil as $f){ ?>
+            <option value="<?php echo $f['NOM_FILIERE']; ?>"> <?php echo $f['NOM_FILIERE']; ?> </option>
+          <?php } ?>
+          </select>
+          <div id="niveau">
+            
+          </div>
+          
+          <input type="text" name="descreption" placeholder="Descreption" >
 
         </div>
-        <button type="submit" href="/">Ajouter ce professeur</button>
+        <div class="divajouterProf">
+        <button type="submit" name="submit" class="btn">Ajouter ce Module</button>
+        </div>
       </form>
     </div>
-  </body>
-</html>
 
 <?php 
     require_once('../controllers/templates/footer.php');
