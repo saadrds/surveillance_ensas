@@ -36,9 +36,9 @@ class ConnectionClass {
        return $result;
    }
 
-   public function SelectWhereFromTable($user,$pass)
+   public function SelectWhereFromTable($table,$user,$pass)
    {
-       $sql = "SELECT * FROM admin WHERE USERNAME = '$user' && PASSWORD ='$pass' ";
+       $sql = "SELECT * FROM $table WHERE USERNAME = '$user' && PASSWORD ='$pass' ";
        $result = $this->getConnection()->query($sql)->fetchAll();
        return $result;
    }
