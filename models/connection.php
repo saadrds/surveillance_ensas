@@ -39,7 +39,14 @@ class ConnectionClass {
    //select with like
    public function SelectLikeFromTable($table,$like)
    {
-       $sql = "SELECT nom FROM $table Where nom like '%$like%'";
+       $sql = "SELECT nom,prenom FROM $table Where nom like '%$like%'";
+       $result = $this->getConnection()->query($sql)->fetchAll();
+       return $result;
+   }
+
+   public function SelectLikeProfFromTable($table,$like)
+   {
+       $sql = "SELECT id_prof,nom,prenom FROM $table Where nom like '%$like%'";
        $result = $this->getConnection()->query($sql)->fetchAll();
        return $result;
    }

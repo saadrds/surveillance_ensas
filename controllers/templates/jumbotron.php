@@ -8,4 +8,6 @@
             <button class="btn btn-secondary my-2">Afficher les Filieres</button>
           </p>
         </div>
+        
 </section>
+<div class="container" id="content"></div>
