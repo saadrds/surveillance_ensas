@@ -29,7 +29,8 @@
       justify-content: center;
       align-items: center;
       height: 100%;
-      padding: 25px;
+      padding-left: 200px;
+      padding-right: 200px;
       background: rgba(0, 0, 0, 0.5); 
       }
       .left-part, form {
