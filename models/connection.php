@@ -61,7 +61,7 @@ class ConnectionClass {
    //select filiere with level
    public function SelectfiliereWhereFromTable($nom,$niveau)
    {
-       $sql = "SELECT * FROM filiere WHERE NOM_FILIERE = '$nom' && 	NIVEAU ='$niveau' ";
+       $sql = "SELECT * FROM filiere WHERE NOM_FILIERE = '$nom' && NIVEAU ='$niveau' ";
        $result = $this->getConnection()->query($sql)->fetchAll();
        return $result;
    }

@@ -123,7 +123,8 @@
   <body>
     <div class="container main-block">
       <form action='AddFiliereInData.php' method='post'>
-      <p style="color:red;"><?php if(isset($message)){ echo $message ;}?></p><br>
+      <p style="color:green;"><?php if(isset($messagegreen)){ echo $messagegreen ;}?></p>
+      <p style="color:red;"><?php if(isset($messagered)){ echo $messagered ;}?></p><br>
         <div class="title">
           <i class="fas fa-pencil-alt"></i> 
           <h2>Ajouter Module</h2>
