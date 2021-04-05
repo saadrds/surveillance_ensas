@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php session_start(); ?>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -6,6 +7,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <title>Document</title>
+  <style>
+        table{
+            margin-top : -20px;
+           border : 1px solid black;
+           padding : 5px;
+           box-shadow : 1px 2px 3px navy;
+           width:100%;
+
+        }
+        li{
+          width:60%;
+          background :#b5cea8;
+          border :1px solid #b5cea8;
+        }
+        td{
+            border-bottom : 1px solid black;
+            padding-bottom: 5px;
+            width : 200px;
+        }
+        #like{
+            width : 210px;
+        }
+
+    </style>
 </head>
 <body>
 <header>
@@ -41,5 +66,6 @@
         </div>
       </div>
     </header>
+    
 
 

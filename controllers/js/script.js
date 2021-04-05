@@ -1,6 +1,23 @@
 $(document).ready(function(e){
     //$('#parag').append("Hello World!");
-    
+    //save les profs surveillants
+    $("#submitDS").click(function(e){
+      e.preventDefault();
+      //alert(document.getElementById("selection").options[sel.selectedIndex].text);
+      let $array1 = $(".survItems");
+      let mySurvList = [];
+      for(let i =0 ; i < $array1.length; i++){
+        mySurvList.push($array1[i].innerHTML);
+      }
+      
+      
+     $("#content").load("../Controllers/saveProfs.php",{survList : mySurvList, typeDs : $("#selection").children("option:selected").val(),
+        date : $("#date").val(), local : $("#local").val(), heure :$("#heure_debut").val() +" - "+ $("#heure_fin").val(),idModule :$("#idModule").html()
+    });
+      
+    });
+
+
     //buttons
     $(".btn").click(function(e){
       $(".btn").attr("class","btn btn-secondary my-2");
@@ -10,16 +27,52 @@ $(document).ready(function(e){
       
       if(e.target.innerHTML == "Afficher les Professeurs"){
         alert("do les profs");
+        $("#content").load("../Controllers/afficherController.php",{table:'prof'});
       }
       else if(e.target.innerHTML == "Afficher les Modules"){
         alert('do les modules');
+        $("#content").load("../Controllers/afficherController.php",{table:'module'});
+        
       }
       else if(e.target.innerHTML == "Afficher les Filieres"){
         alert('do les filieres');
+        $("#content").load("../Controllers/afficherController.php",{table:'filiere'});
       }
 
     });
     
+      //surveillant
+      $('#surv').keyup(function(e) {
+        //alert(e.target.value);
+        $("#listAjax").load('getAllSurv.php',{surv : e.target.value},function(){
+          $("td").hover(function(e){
+            $(this).css({
+              'background': '#22a2cf',
+              'cursor' : "pointer"
+            }
+            );
+          },function(e){
+            $(this).css({
+              'background': 'white',
+              
+            }
+            );
+          }),
+          $("td").click(function(e){
+            console.log(e.target);
+            $("#surv").val(e.target.innerHTML);
+            $("#listAjax").html("");
+            $("#survList").html($("#survList").html() + '<input type="checkbox" id="scales" name="'+ e.target.innerHTML + '" checked hidden>'+"<li class='text-success survItems'>"+ e.target.innerHTML+"</li><br>");
+          });
+  
+        });
+  
+        
+        
+        
+      });
+
+
     $('#like').keyup(function(e) {
       //alert(e.target.value);
       $("#tab").load('getAll.php',{like : e.target.value},function(){
@@ -42,6 +95,8 @@ $(document).ready(function(e){
         });
 
       });
+
+      
       
       
     });
