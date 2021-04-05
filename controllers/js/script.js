@@ -1,4 +1,26 @@
 $(document).ready(function(e){
+  $("#filiere").click(()=>{
+    if($("#filiere").children('option:selected').val() == "CP"){
+      $("#niveau").load("../views/niveaux/niveau12.html");
+    }else{
+      $("#niveau").load("../views/niveaux/niveau123.html");
+    }
+  });
+});
+  
+  $("#search-box").keyup(function(){
+		$.ajax({
+		type: "POST",
+		url: "readRespoModule.php",
+		data:'keyword='+$(this).val(),
+		beforeSend: function(){
+		},
+		success: function(data){
+			$("#suggesstion-box").show();
+			$("#suggesstion-box").html(data);
+		}
+		});
+	});
     //$('#parag').append("Hello World!");
     
     //buttons
@@ -112,12 +134,13 @@ $(document).ready(function(e){
      );
 });
 
-})
-
 
 
 // scripts ajax
-
+function selectCountry(val) {
+  $("#search-box").val(val);
+  $("#suggesstion-box").hide();
+  }
 function getXMLHTTPRequest() {
 
   let  xhr = null;

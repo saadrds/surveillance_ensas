@@ -28,6 +28,14 @@ class ConnectionClass {
        return $result;
    }
 
+   //select all from a table with GROUP BY
+   public function SelectAllFromTableGroupeBy($table)
+   {
+       $sql = "SELECT * FROM $table GROUP BY `NOM_FILIERE`";
+       $result = $this->getConnection()->query($sql)->fetchAll();
+       return $result;
+   }
+
    //select with like
    public function SelectLikeFromTable($table,$like)
    {

@@ -1,4 +1,4 @@
-    <style>
+<style>
       html, body {
       min-height: 100%;
       }
@@ -47,12 +47,13 @@
       display: flex;
       flex-direction: column;
       }
-      input, select {
+      input, select, #search-box {
       padding: 5px;
       margin-bottom: 30px;
       background: transparent;
       border: none;
       border-bottom: 1px solid #eee;
+      vertical-align: middle;
       }
       input::placeholder {
       color: #eee;
@@ -114,31 +115,34 @@
       height: auto;
       }
       }
+#country-list{float:left;list-style:none;margin-top:-3px;padding:0;width:190px;position: absolute;top:430px;}
+#country-list li{padding: 10px; background: #eee;color:black}
+#country-list li:hover{background:#aaa;cursor: pointer;color:black}
     </style>
   </head>
   <body>
-  <div>
-        
-    </div>
     <div class="container main-block">
-      <form action='AddProfInDataBase.php' method='post'>
-        <p style="color:red;"><?php if(isset($message)){ echo $message ;}?></p><br>
+      <form action='AddFiliereInData.php' method='post'>
+      <p style="color:red;"><?php if(isset($message)){ echo $message ;}?></p><br>
         <div class="title">
           <i class="fas fa-pencil-alt"></i> 
-          <h2>Ajouter Prof</h2>
+          <h2>Ajouter Module</h2>
         </div>
         <div class="info">
-          <input class="fname" type="text" name="nomProf" placeholder="Nom">
-          <input type="text" name="prenomProf" placeholder="Prenom">
-          <input type="email" name="email" placeholder="Email">
-          <input type="text" name="telephone" placeholder="Téléphone">
+          <input class="fname" type="text" name="nomFiliere" placeholder="Nom du Filiere" > 
+          <div class="frmSearch">
+          <input style="width:100%;" type="text" name="chef" id="search-box" placeholder="Chef de Filiere" >
+          <div id="suggesstion-box"></div>
+          </div>
+          <input type="text" name="niveau" placeholder="Niveau" >
 
         </div>
         <div class="divajouterProf">
-        <button type="submit" name="submit" class="btn">Ajouter ce professeur</button>
+        <button type="submit" name="submit" class="btn">Ajouter ce Module</button>
         </div>
       </form>
     </div>
+
 <?php 
     require_once('../controllers/templates/footer.php');
 ?>
