@@ -48,16 +48,13 @@ $(document).ready(function(e){
       $(e.target).addClass("btn btn-primary my-2");
       
       if(e.target.innerHTML == "Afficher les Professeurs"){
-        alert("do les profs");
         $("#content").load("../Controllers/afficherController.php",{table:'prof'});
       }
       else if(e.target.innerHTML == "Afficher les Modules"){
-        alert('do les modules');
         $("#content").load("../Controllers/afficherController.php",{table:'module'});
         
       }
       else if(e.target.innerHTML == "Afficher les Filieres"){
-        alert('do les filieres');
         $("#content").load("../Controllers/afficherController.php",{table:'filiere'});
       }
 

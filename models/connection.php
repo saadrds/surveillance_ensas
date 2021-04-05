@@ -58,6 +58,14 @@ class ConnectionClass {
        return $result;
    }
 
+   //select filiere with level
+   public function SelectfiliereWhereFromTable($nom,$niveau)
+   {
+       $sql = "SELECT * FROM filiere WHERE NOM_FILIERE = '$nom' && 	NIVEAU ='$niveau' ";
+       $result = $this->getConnection()->query($sql)->fetchAll();
+       return $result;
+   }
+
    // delete a row from table
    public function DeleteRowFromTable($table, $col, $value)
    {
