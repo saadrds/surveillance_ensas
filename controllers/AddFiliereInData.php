@@ -3,7 +3,7 @@ require_once('../models/connection.php');
 
 $message = "";
 if(isset($_POST['nomFiliere']) && isset($_POST['chef']) && isset($_POST['niveau'])){
-    if(!empty($_POST['nomFiliere']) && !empty($_POST['chef']) && :empty($_POST['niveau'])){
+    if(!empty($_POST['nomFiliere']) && !empty($_POST['chef']) && !empty($_POST['niveau'])){
     $nomFiliere = htmlspecialchars($_POST['nomFiliere']);
     $chef = htmlspecialchars($_POST['chef']);
     $niveau = htmlspecialchars($_POST['niveau']);
@@ -16,8 +16,8 @@ if(isset($_POST['nomFiliere']) && isset($_POST['chef']) && isset($_POST['niveau'
         require_once('AjouterFiliereController.php');
     }else{
         $messagered = "Le Module $nomFiliere n'est bien ajoute !!!!!!! ";
-    }else{$messagered = "If faut remplaire tous les champs !!!!!!! ";
+    }
+}else{ $messagered = "If faut remplaire tous les champs !!!!!!! ";
         require_once('AjouterFiliereController.php');}
-}
 } 
 ?>
